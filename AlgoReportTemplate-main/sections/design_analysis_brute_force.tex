@@ -1,0 +1,114 @@
+\epigraph{\textit{``Indeed, brute force is a perfectly good technique in many cases; the real question is, can we use brute force in such a way that we avoid the worst-case behavior?''}}{--- \citeauthor{taocv3}, \citeyear{taocv3} \cite{taocv3}}
+
+\begin{algorithm}[H]
+    \SetKwProg{myproc}{Procedure}{}{}
+    \SetKwFunction{AlgorithmName}{distanciaEdicionFuerzaBruta}
+    
+    \DontPrintSemicolon
+    \footnotesize
+
+    \myproc{\AlgorithmName{S1, S2, i, j, operaciones}}{
+        \uIf{i es igual a la longitud de S1}{
+            costo $\leftarrow$ 0\;
+            \For{k desde j hasta la longitud de S2 - 1}{
+                Escribir $"$inserción$"$ + S2[k] en operaciones\;
+                costo $\leftarrow$ costo + costo\_insert(S2[k])\;
+            }
+            \Return costo\;
+        }
+        \uElseIf{j es igual a la longitud de S2}{
+            costo $\leftarrow$ 0\;
+            \For{k desde i hasta la longitud de S1 - 1}{
+                Escribir $"$eliminación$"$ + S1[k] en operaciones\;
+                costo $\leftarrow$ costo + costo\_delete(S1[k])\;
+            }
+            \Return costo\;
+        }
+        
+        costoSustitucion $\leftarrow$ costo\_sub(S1[i], S2[j]) + \AlgorithmName{S1, S2, i + 1, j + 1, operaciones}\;
+        costoInsercion $\leftarrow$ costo\_insert(S2[j]) + \AlgorithmName{S1, S2, i, j + 1, operaciones}\;
+        costoEliminacion $\leftarrow$ costo\_delete(S1[i]) + \AlgorithmName{S1, S2, i + 1, j, operaciones}\;
+
+        costoTransposicion $\leftarrow$ INT\_MAX\;
+        \If{i + 1 $<$ longitud de S1 y j + 1 $<$ longitud de S2 y S1[i] $=$ S2[j + 1] y S1[i + 1] $=$ S2[j]}{
+            Escribir $"$transposición$"$ + S1[i] + S1[i + 1] en operaciones\;
+            costoTransposicion $\leftarrow$ costo\_transpose(S1[i], S1[i + 1]) + \AlgorithmName{S1, S2, i + 2, j + 2, operaciones}\;
+        }
+
+        \uIf{costoSustitucion es el mínimo de los costos}{
+            Escribir $"$sustitución$"$ + S1[i] + $"$->$"$ + S2[j] en operaciones\;
+        }
+        \uElseIf{costoInsercion es el mínimo de los costos}{
+            Escribir $"$inserción$"$ + S2[j] en operaciones\;
+        }
+        \ElseIf{costoEliminacion es el mínimo de los costos}{
+            Escribir $"$eliminación$"$ + S1[i] en operaciones\;
+        }
+
+        \Return el mínimo entre \{costoSustitucion, costoInsercion, costoEliminacion, costoTransposicion\}\;
+    }
+    \caption{Algoritmo de distancia de edición con fuerza bruta.}
+    \label{alg:distanciaEdicionFuerzaBruta}
+\end{algorithm}
+
+\subsubsection{Ejemplo Paso a Paso}
+Para demostrar el funcionamiento de ambos algoritmos (fuerza bruta y programación dinámica), aplicaremos un análisis paso a paso con las cadenas $S1 = \text{$"$abcd$"$}$ y $S2 = \text{$"$abc$"$}$, así como con $S1 = \text{$"$abcd$"$}$ y $S2 = \text{$"$abdc$"$}$. Los costos específicos de cada operación de edición son:
+
+\begin{itemize}
+    \item \textbf{Costo de Inserción}: 1
+    \item \textbf{Costo de Eliminación}: 1
+    \item \textbf{Costo de Sustitución}: 2
+    \item \textbf{Costo de Transposición}: 1
+\end{itemize}
+
+Este algoritmo examina todas las posibles transformaciones de $S1$ a $S2$, evaluando cada combinación de inserción, eliminación, sustitución y transposición para encontrar el costo mínimo.
+
+\subsubsection{Ejemplo 1: $S1 = \text{$"$abcd$"$}$ y $S2 = \text{$"$abc$"$}$}
+
+\begin{enumerate}
+    \item Comparamos los primeros caracteres:$"$a$"$ de $S1$ y $"$a$"$ de $S2$.
+    \begin{itemize}
+        \item Son iguales, avanzamos al siguiente carácter en ambas cadenas sin costo adicional.
+    \end{itemize}
+    \item Comparamos los siguientes caracteres: $"$b$"$ de $S1$ y $"$b$"$ de $S2$.
+    \begin{itemize}
+        \item Son iguales, avanzamos al siguiente carácter sin costo adicional.
+    \end{itemize}
+    \item Comparamos $"$c$"$ de $S1$ y $"$c$"$ de $S2$.
+    \begin{itemize}
+        \item Son iguales, avanzamos al siguiente carácter sin costo adicional.
+    \end{itemize}
+    \item Resta un carácter adicional en $S1$: $"$d$"$. Realizamos una eliminación con un costo de 1.
+\end{enumerate}
+
+\textbf{Costo mínimo para transformar $S1 = \text{$"$abcd$"$}$ en $S2 = \text{$"$abc$"$}$ es 1.}
+
+\subsubsection{Ejemplo 2: $S1 = \text{$"$abcd$"$}$ y $S2 = \text{$"$abdc$"$}$}
+
+\begin{enumerate}
+    \item Comparamos $"$a$"$ de $S1$ y $"$a$"$ de $S2$.
+    \begin{itemize}
+        \item Son iguales, avanzamos al siguiente carácter sin costo.
+    \end{itemize}
+    \item Comparamos $"$b$"$ de $S1$ y $"$b$"$ de $S2$.
+    \begin{itemize}
+        \item Son iguales, avanzamos al siguiente carácter sin costo.
+    \end{itemize}
+    \item Comparamos $"$c$"$ de $S1$ y $"$d$"$ de $S2$.
+    \begin{itemize}
+        \item Son diferentes, con cuatro opciones:
+        \begin{enumerate}
+            \item Eliminar $"$c$"$ en $S1$, logrando $S1 = \text{$"$abd$"$}$ (costo acumulado: 1).
+            \item Insertar $"$d$"$ en $S1$, logrando $S1 = \text{$"$abcd$"$}$ (costo acumulado: 1).
+            \item Sustituir $"$c$"$ por $"$d$"$ (costo acumulado: 2).
+            \item Transponer $"$c$"$ y $"$d$"$ en $S1$, logrando $S1 = \text{$"$abdc$"$}$ (costo acumulado: 1).
+        \end{enumerate}
+    \end{itemize}
+\end{enumerate}
+
+\textbf{El costo mínimo para transformar $S1 = \text{$"$abcd$"$}$ en $S2 = \text{$"$abdc$"$}$ es 1.}
+
+\subsubsection{Análisis de Complejidad}
+La complejidad temporal del algoritmo de fuerza bruta es exponencial, \( O(4^{\max(m, n)}) \), donde \( m \) y \( n \) son las longitudes de \( S1 \) y \( S2 \), respectivamente. La falta de almacenamiento de subproblemas resueltos obliga a recalcular cada transformación posible, resultando en una alta demanda de tiempo de ejecución para cadenas largas. La complejidad espacial es \( O(\max(m, n)) \) debido a la profundidad máxima de la pila de recursión.
+
+La inclusión de transposiciones y costos variables aumenta la cantidad de posibles operaciones a evaluar en cada paso, incrementando la carga computacional en comparación con la versión estándar del algoritmo de distancia de edición.

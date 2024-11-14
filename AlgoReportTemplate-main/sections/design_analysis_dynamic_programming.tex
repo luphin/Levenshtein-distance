@@ -1,0 +1,145 @@
+
+\epigraph{\textit{Dynamic programming is not about filling in tables. It's about smart recursion!}}{\citeauthor{algorithms_erickson}, \citeyear{algorithms_erickson} \cite{algorithms_erickson}}
+
+\begin{enumerate}[1)]
+    \item Describa la solución recursiva.
+    \item Escriba la relación de recurrencia, incluyendo condiciones y casos base.
+    \item Identifique subproblemas.
+    \item Defina estructura de datos a utilizar y especifique el orden de calculo que realiza su programa que utiliza programación dinámica. 
+\end{enumerate}
+
+\subsubsection{Descripción de la Solución Recursiva}
+En programación dinámica, el problema se descompone en subproblemas, almacenando cada resultado para evitar cálculos repetitivos. Esto permite calcular la distancia de edición entre \( S1 \) y \( S2 \) de manera más eficiente.
+
+\subsubsection{Relación de Recurrencia}
+La relación de recurrencia es la siguiente:
+\[
+\text{DP}[i][j] = \min \begin{cases} 
+    \text{DP}[i-1][j] + \text{costo\_eliminación} \\
+    \text{DP}[i][j-1] + \text{costo\_inserción} \\
+    \text{DP}[i-1][j-1] + \text{costo\_sustitución} & \text{si } S1[i] \neq S2[j] \\
+    \text{DP}[i-2][j-2] + \text{costo\_transposición} & \text{si hay transposición} \\
+\end{cases}
+\]
+
+Los casos base son:
+\[
+\text{DP}[0][j] = j \times \text{costo\_inserción} \quad \text{y} \quad \text{DP}[i][0] = i \times \text{costo\_eliminación}
+\]
+
+\subsubsection{Identificación de Subproblemas}
+Cada subproblema \( \text{DP}[i][j] \) representa la distancia mínima de edición para transformar los primeros \( i \) caracteres de \( S1 \) en los primeros \( j \) caracteres de \( S2 \).
+
+
+
+\begin{algorithm}[H]
+    \SetKwProg{myproc}{Procedure}{}{}
+    \SetKwFunction{AlgorithmName}{distanciaEdicionProgDinamica}
+    
+    \DontPrintSemicolon
+    \footnotesize
+
+    \myproc{\AlgorithmName{S1, S2, operaciones}}{
+        m $\leftarrow$ longitud de S1\;
+        n $\leftarrow$ longitud de S2\;
+        Crear matriz dp de dimensiones $(m + 1) \times (n + 1)$ inicializada en 0\;
+
+        \For{i desde 1 hasta m}{
+            dp[i][0] $\leftarrow$ dp[i - 1][0] + costo\_delete(S1[i - 1])\;
+            Escribir $"$eliminación$"$ + S1[i - 1] en operaciones\;
+        }
+
+        \For{j desde 1 hasta n}{
+            dp[0][j] $\leftarrow$ dp[0][j - 1] + costo\_insert(S2[j - 1])\;
+            Escribir $"$inserción$"$ + S2[j - 1] en operaciones\;
+        }
+
+        \For{i desde 1 hasta m}{
+            \For{j desde 1 hasta n}{
+                costoSustitucion $\leftarrow$ dp[i - 1][j - 1] + costo\_sub(S1[i - 1], S2[j - 1])\;
+                costoInsercion $\leftarrow$ dp[i][j - 1] + costo\_insert(S2[j - 1])\;
+                costoEliminacion $\leftarrow$ dp[i - 1][j] + costo\_delete(S1[i - 1])\;
+                
+                dp[i][j] $\leftarrow$ mínimo entre \{costoSustitucion, costoInsercion, costoEliminacion\}\;
+
+                \uIf{dp[i][j] es costoSustitucion}{
+                    Escribir $"$sustitución$"$ + S1[i - 1] + $"$->$"$ + S2[j - 1] en operaciones\;
+                }
+                \uElseIf{dp[i][j] es costoInsercion}{
+                    Escribir $"$inserción$"$ + S2[j - 1] en operaciones\;
+                }
+                \ElseIf{dp[i][j] es costoEliminacion}{
+                    Escribir $"$eliminación$"$ + S1[i - 1] en operaciones\;
+                }
+
+                \If{i $>$ 1 y j $>$ 1 y S1[i - 1] $=$ S2[j - 2] y S1[i - 2] $=$ S2[j - 1]}{
+                    costoTransposicion $\leftarrow$ dp[i - 2][j - 2] + costo\_transpose(S1[i - 2], S1[i - 1])\;
+                    \If{dp[i][j] $>$ costoTransposicion}{
+                        dp[i][j] $\leftarrow$ costoTransposicion\;
+                        Escribir $"$transposición$"$ + S1[i - 2] + S1[i - 1] en operaciones\;
+                    }
+                }
+            }
+        }
+
+        \Return dp[m][n]\;
+    }
+    \caption{Algoritmo de distancia de edición con programación dinámica.}
+    \label{alg:distanciaEdicionProgDinamica}
+\end{algorithm}
+
+\subsubsection{Ejemplo Paso a Paso}
+Para este algoritmo de programación dinámica, utilizamos una matriz \( DP \) donde cada celda \( DP[i][j] \) representa el costo mínimo para transformar los primeros \( i \) caracteres de \( S1 \) en los primeros \( j \) caracteres de \( S2 \).Los costos específicos de cada operación de edición son:
+
+\begin{itemize}
+    \item \textbf{Costo de Inserción}: 1
+    \item \textbf{Costo de Eliminación}: 1
+    \item \textbf{Costo de Sustitución}: 2
+    \item \textbf{Costo de Transposición}: 1
+\end{itemize}
+
+\subsubsection{Ejemplo 1: \( S1 = \text{$"$abcd$"$} \) y \( S2 = \text{$"$abc$"$} \)}
+
+Inicializamos la matriz \( DP \) de tamaño \( 5 \times 4 \) (porque \( S1 \) tiene 4 caracteres y \( S2 \) tiene 3), con las condiciones base:
+
+\begin{itemize}
+    \item \( DP[i][0] = i \times \text{costo de eliminación} \)
+    \item \( DP[0][j] = j \times \text{costo de inserción} \)
+\end{itemize}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c|c|c|c|c}
+        & $""$ & $"$a$"$ & $"$ab$"$ & $"$abc$"$ \\
+        \hline
+        $""$ & 0 & 1 & 2 & 3 \\
+        $"$a$"$ & 1 & 0 & 1 & 2 \\
+        $"$ab$"$ & 2 & 1 & 0 & 1 \\
+        $"$abc$"$ & 3 & 2 & 1 & 0 \\
+        $"$abcd$"$ & 4 & 3 & 2 & 1 \\
+    \end{tabular}
+\end{table}
+
+El costo mínimo para transformar \( S1 = \text{$"$abcd$"$} \) en \( S2 = \text{$"$abc$"$} \) es el valor en \( DP[4][3] = 1 \).
+
+\subsubsection{Ejemplo 2: \( S1 = \text{$"$abcd$"$} \) y \( S2 = \text{$"$abdc$"$} \)}
+
+Para este caso, la matriz tendrá en cuenta la posibilidad de transposiciones.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c}
+        & $""$ & $"$a$"$ & $"$ab$"$ & $"$abc$"$ \\
+        \hline
+        $""$ & 0 & 1 & 2 & 3 & 4 \\
+        $"$a$"$ & 1 & 0 & 1 & 2 & 3 \\
+        $"$ab$"$ & 2 & 1 & 0 & 1 & 2 \\
+        $"$abc$"$ & 3 & 2 & 1 & 2 & 1 \\
+        $"$abcd$"$ & 4 & 3 & 2 & 1 & 1 \\
+    \end{tabular}
+\end{table}
+
+La celda \( DP[4][4] = 1 \) indica que el costo mínimo es 1, logrado mediante la transposición entre $"$c$"$ y $"$d$"$ en \( S1 \).
+
+\subsubsection{Análisis de Complejidad}
+La complejidad temporal de la versión dinámica es \( O(m \times n) \), ya que se calcula cada celda de la matriz \( DP \) una sola vez. La complejidad espacial también es \( O(m \times n) \) debido a la matriz utilizada para almacenar los subproblemas. La inclusión de transposiciones y costos variables agrega un costo adicional en el cálculo de cada celda de \( DP \), pero no cambia la complejidad asintótica.

@@ -1,0 +1,24 @@
+Caso:  vs 
+Distancia (FB): 0, Tiempo (FB): 2 us, Memoria (FB): 0 KB
+Distancia (DP): 0, Tiempo (DP): 3 us, Memoria (DP): 0 KB
+Caso: aaaa vs aaaa
+Distancia (FB): 0, Tiempo (FB): 205 us, Memoria (FB): 0 KB
+Distancia (DP): 0, Tiempo (DP): 14 us, Memoria (DP): 0 KB
+Caso: ab vs ba
+Distancia (FB): 1, Tiempo (FB): 6 us, Memoria (FB): 0 KB
+Distancia (DP): 1, Tiempo (DP): 6 us, Memoria (DP): 0 KB
+Caso: abc vs acb
+Distancia (FB): 1, Tiempo (FB): 29 us, Memoria (FB): 0 KB
+Distancia (DP): 1, Tiempo (DP): 9 us, Memoria (DP): 0 KB
+Caso: abcde vs abcde
+Distancia (FB): 0, Tiempo (FB): 811 us, Memoria (FB): 0 KB
+Distancia (DP): 0, Tiempo (DP): 26 us, Memoria (DP): 0 KB
+Caso: abc vs a
+Distancia (FB): 2, Tiempo (FB): 4 us, Memoria (FB): 0 KB
+Distancia (DP): 2, Tiempo (DP): 6 us, Memoria (DP): 0 KB
+Caso: abc vs def
+Distancia (FB): 3, Tiempo (FB): 28 us, Memoria (FB): 0 KB
+Distancia (DP): 3, Tiempo (DP): 8 us, Memoria (DP): 0 KB
+Caso: abcd vs abdc
+Distancia (FB): 1, Tiempo (FB): 196 us, Memoria (FB): 0 KB
+Distancia (DP): 1, Tiempo (DP): 20 us, Memoria (DP): 32768 KB
