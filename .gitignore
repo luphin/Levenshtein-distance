@@ -198,3 +198,8 @@ cython_debug/
 *.app
 
 
+# Visual Studio code
+.vscode
+
+.DS_Store
+*.dSYM
