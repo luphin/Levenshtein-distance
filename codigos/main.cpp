@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <sstream> // Para std::istringstream
 #include <climits>  // Para INT_MAX
 #include <chrono>   // Para medir el tiempo
 #include <sys/resource.h>  // Para medir el uso de memoria (solo en sistemas compatibles)
@@ -100,22 +101,28 @@ int main() {
         cerr << "No se pudo abrir el archivo para escribir." << endl;
         return 1;
     }
-
     cout << "Archivo de salida abierto correctamente." << endl;
 
-    vector<pair<string, string>> casosPrueba = {
-        {"", ""}, {"aaaa", "aaaa"}, {"ab", "ba"}, {"abc", "acb"},
-        {"abcde", "abcde"}, {"abc", "a"}, {"abc", "def"}, {"abcd", "abdc"}
-    };
+    ifstream casosFile("casos_prueba.txt");
+    if (!casosFile) {
+        cerr << "Error al abrir el archivo de casos de prueba." << endl;
+        return 1;
+    }
 
-    for (auto &par : casosPrueba) {
-        cout << "Ejecutando prueba para: " << par.first << " vs " << par.second << endl;
-        runTest(par.first, par.second, outputFile, operacionesFile);
-        cout << "Prueba completada para: " << par.first << " vs " << par.second << endl;
+    string S1, S2;
+    while (casosFile >> S1 >> S2) {  // Leer pares de cadenas
+        // Si se detecta el marcador de string vacío `""`, asignar un string vacío
+        if (S1 == "\"\"") S1 = "";
+        if (S2 == "\"\"") S2 = "";
+
+        cout << "Ejecutando prueba para: '" << S1 << "' vs '" << S2 << "'" << endl;
+        runTest(S1, S2, outputFile, operacionesFile);
+        cout << "Prueba completada para: '" << S1 << "' vs '" << S2 << "'" << endl;
     }
 
     outputFile.close();
     operacionesFile.close();
+    casosFile.close();
     cout << "Archivo de salida cerrado correctamente." << endl;
     return 0;
 }
@@ -160,25 +167,29 @@ int distanciaEdicionFuerzaBruta(const string &S1, const string &S2, int i, int j
         return costo;
     }
     
+    // Calcular costos de cada operación sin escribir aún en el archivo
     int costoSustitucion = costo_sub(S1[i], S2[j]) + distanciaEdicionFuerzaBruta(S1, S2, i + 1, j + 1, operaciones);
     int costoInsercion = costo_insert(S2[j]) + distanciaEdicionFuerzaBruta(S1, S2, i, j + 1, operaciones);
     int costoEliminacion = costo_delete(S1[i]) + distanciaEdicionFuerzaBruta(S1, S2, i + 1, j, operaciones);
 
     int costoTransposicion = INT_MAX;
     if (i + 1 < S1.length() && j + 1 < S2.length() && S1[i] == S2[j + 1] && S1[i + 1] == S2[j]) {
-        operaciones << "transposición " << S1[i] << S1[i + 1] << "\n";
         costoTransposicion = costo_transpose(S1[i], S1[i + 1]) + distanciaEdicionFuerzaBruta(S1, S2, i + 2, j + 2, operaciones);
     }
 
-    if (costoSustitucion <= costoInsercion && costoSustitucion <= costoEliminacion && costoSustitucion <= costoTransposicion) {
+    // Determinar el costo mínimo y escribir solo la operación correspondiente
+    int costoMinimo = min({costoSustitucion, costoInsercion, costoEliminacion, costoTransposicion});
+    if (costoMinimo == costoSustitucion) {
         operaciones << "sustitución " << S1[i] << "->" << S2[j] << "\n";
-    } else if (costoInsercion <= costoEliminacion && costoInsercion <= costoTransposicion) {
+    } else if (costoMinimo == costoInsercion) {
         operaciones << "inserción " << S2[j] << "\n";
-    } else if (costoEliminacion <= costoTransposicion) {
+    } else if (costoMinimo == costoEliminacion) {
         operaciones << "eliminación " << S1[i] << "\n";
+    } else if (costoMinimo == costoTransposicion) {
+        operaciones << "transposición " << S1[i] << S1[i + 1] << "\n";
     }
 
-    return min({costoSustitucion, costoInsercion, costoEliminacion, costoTransposicion});
+    return costoMinimo;
 }
 
 int distanciaEdicionProgDinamica(const string &S1, const string &S2, ofstream &operaciones) {
