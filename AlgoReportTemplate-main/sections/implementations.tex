@@ -1,8 +1,15 @@
-\begin{mdframed}
-    \textbf{La extensión máxima para esta sección es de 1 página.}
-\end{mdframed}
+El programa se puede encontrar en ``\href{https://github.com/luphin/Tarea2y3Algoritmos-FB-PD/tree/main}{este enlace}``, que lo redirigirá a un repositorio en GitHub donde están los códigos para ejecutar la solución al problema.
+La carpeta que contiene la solución se llama \texttt{codigos}, y tiene la siguiente estructura:
 
-Aquí deben explicar la estructura de sus programas haciendo referencias a los archivos y funciones de su entrega. No adjunte código en esta sección.
-\begin{mdframed}
-    Si se utiliza algún código, idea, o contenido extraído de otra fuente, este \textbf{debe} ser citado en el lugar exacto donde se utilice, en lugar de mencionarlo al final del informe.
-\end{mdframed}
+\begin{itemize}
+    \item \verb|casos_prueba.txt|: aquí se encuentran los casos de prueba a evaluar. Cada caso debe ingresarse en el formato "palabra1 palabra2". Si se desea especificar una cadena vacía, se representa mediante comillas dobles ($""$). Las entradas pueden ser palabras o secuencias de letras en minúsculas del abecedario en inglés. 
+    \item \verb|costos_delete.txt| y \verb|costos_insert.txt|: archivos que representan los costos de eliminación e inserción respectivamente, para cada letra (cada valor corresponde a una letra desde la $"$a$"$ hasta la $"$z$"$).
+    \item \verb|costos_replace.txt| y \verb|costos_transpose.txt|:archivos que contienen una matriz que representa los costos de reemplazo y transposición de una letra por otra; es una matriz de tamaño 26x26 (cada columna y fila corresponden a una letra).
+    \item \verb|costos.cpp|: archivo en C+, genera los archivos \textbf{costos}, estableciendo un valor de 1 para todas las operaciones, lo cual permite verificar que los algoritmos creados funcionen correctamente al entregar soluciones exactas para cada caso.
+    \item \verb|random-costos.cpp|: archivo en C++, genera los archivos \textbf{costos} con valores aleatorios entre 1 y 10 para los costos de las operaciones. Esta configuración es la válida para cumplir con el propósito de la implementación.
+    \item \verb|graficos.py|: archivo en Python que genera gráficos en función de los resultados registrados en \verb|resultados.txt|.
+    \item \verb|resultados.txt|: archivo que contiene los resultados de cada caso probado. Incluye información sobre la distancia de edición, el tiempo en microsegundos y la memoria utilizada para la implementación de Fuerza Bruta y Programación Dinámica.
+    \item \verb|operaciones.txt|: archivo en el que se registran las operaciones realizadas por los diferentes algoritmos. Su tamaño puede variar considerablemente según la cantidad de casos y la longitud de las palabras probadas.
+    \item \verb|main.cpp|: archivo principal, implementa la solución completa; Debe ejecutarse para obtener todos los resultados. Lee el set de pruebas en \verb|casos_prueba.txt|.
+    \item \verb|Makefile|: archivo Makefile que contiene los comandos necesarios para ejecutar cada uno de los archivos.
+\end{itemize}

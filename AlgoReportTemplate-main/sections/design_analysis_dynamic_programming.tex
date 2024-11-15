@@ -1,15 +1,6 @@
-
-\epigraph{\textit{Dynamic programming is not about filling in tables. It's about smart recursion!}}{\citeauthor{algorithms_erickson}, \citeyear{algorithms_erickson} \cite{algorithms_erickson}}
-
-\begin{enumerate}[1)]
-    \item Describa la solución recursiva.
-    \item Escriba la relación de recurrencia, incluyendo condiciones y casos base.
-    \item Identifique subproblemas.
-    \item Defina estructura de datos a utilizar y especifique el orden de calculo que realiza su programa que utiliza programación dinámica. 
-\end{enumerate}
-
 \subsubsection{Descripción de la Solución Recursiva}
-En programación dinámica, el problema se descompone en subproblemas, almacenando cada resultado para evitar cálculos repetitivos. Esto permite calcular la distancia de edición entre \( S1 \) y \( S2 \) de manera más eficiente.
+En programación dinámica, el problema se descompone en subproblemas, almacenando cada resultado dentro de una matriz a memdida que se revisan los strings, para evitar cálculos repetitivos. Esto permite calcular la distancia de edición entre \( S1 \) y \( S2 \) de manera más eficiente.
+
 
 \subsubsection{Relación de Recurrencia}
 La relación de recurrencia es la siguiente:
@@ -89,57 +80,39 @@ Cada subproblema \( \text{DP}[i][j] \) representa la distancia mínima de edici�
 \end{algorithm}
 
 \subsubsection{Ejemplo Paso a Paso}
-Para este algoritmo de programación dinámica, utilizamos una matriz \( DP \) donde cada celda \( DP[i][j] \) representa el costo mínimo para transformar los primeros \( i \) caracteres de \( S1 \) en los primeros \( j \) caracteres de \( S2 \).Los costos específicos de cada operación de edición son:
+
+La función \texttt{distanciaEdicionProgDinamica} calcula la distancia mínima de edición entre dos cadenas, \( S1 \) y \( S2 \), mediante un enfoque de programación dinámica, usando una matriz de costos (\texttt{dp}) para almacenar soluciones de subproblemas. A continuación, se presenta un resumen de los pasos clave:
 
 \begin{itemize}
-    \item \textbf{Costo de Inserción}: 1
-    \item \textbf{Costo de Eliminación}: 1
-    \item \textbf{Costo de Sustitución}: 2
-    \item \textbf{Costo de Transposición}: 1
+    \item \textbf{Inicialización de Casos Base:}
+    \begin{itemize}
+        \item Rellena la primera columna de \texttt{dp} para reflejar el costo de eliminar cada carácter en \( S1 \) cuando \( S2 \) está vacío.
+        \item Rellena la primera fila de \texttt{dp} para reflejar el costo de insertar cada carácter de \( S2 \) cuando \( S1 \) está vacío.
+    \end{itemize}
+    
+    \item \textbf{Cálculo de Costos de Operaciones:}
+    \begin{itemize}
+        \item Para cada posición \( (i, j) \) en la matriz, calcula:
+        \begin{itemize}
+            \item \textbf{Sustitución:} El costo de reemplazar \( S1[i-1] \) por \( S2[j-1] \).
+            \item \textbf{Inserción:} El costo de insertar \( S2[j-1] \).
+            \item \textbf{Eliminación:} El costo de eliminar \( S1[i-1] \).
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Registro de Operaciones:} 
+    \begin{itemize}
+        \item Se escribe en el archivo de operaciones el tipo de operación seleccionada en cada paso (sustitución, inserción, o eliminación) basada en el menor costo.
+    \end{itemize}
+
+    \item \textbf{Verificación de Transposición (Opcional):} 
+    \begin{itemize}
+        \item Si \( S1[i-1] \) y \( S1[i-2] \) están invertidos respecto a \( S2[j-1] \) y \( S2[j-2] \), calcula el costo de transponerlos y actualiza \texttt{dp[i][j]} si este costo es menor que los otros.
+        \item Registra la operación de transposición en el archivo de operaciones si es elegida.
+    \end{itemize}
+
+    \item \textbf{Resultado:} Al finalizar, \texttt{dp[m][n]} contiene el costo mínimo para transformar \( S1 \) en \( S2 \).
 \end{itemize}
-
-\subsubsection{Ejemplo 1: \( S1 = \text{$"$abcd$"$} \) y \( S2 = \text{$"$abc$"$} \)}
-
-Inicializamos la matriz \( DP \) de tamaño \( 5 \times 4 \) (porque \( S1 \) tiene 4 caracteres y \( S2 \) tiene 3), con las condiciones base:
-
-\begin{itemize}
-    \item \( DP[i][0] = i \times \text{costo de eliminación} \)
-    \item \( DP[0][j] = j \times \text{costo de inserción} \)
-\end{itemize}
-
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{c|c|c|c|c}
-        & $""$ & $"$a$"$ & $"$ab$"$ & $"$abc$"$ \\
-        \hline
-        $""$ & 0 & 1 & 2 & 3 \\
-        $"$a$"$ & 1 & 0 & 1 & 2 \\
-        $"$ab$"$ & 2 & 1 & 0 & 1 \\
-        $"$abc$"$ & 3 & 2 & 1 & 0 \\
-        $"$abcd$"$ & 4 & 3 & 2 & 1 \\
-    \end{tabular}
-\end{table}
-
-El costo mínimo para transformar \( S1 = \text{$"$abcd$"$} \) en \( S2 = \text{$"$abc$"$} \) es el valor en \( DP[4][3] = 1 \).
-
-\subsubsection{Ejemplo 2: \( S1 = \text{$"$abcd$"$} \) y \( S2 = \text{$"$abdc$"$} \)}
-
-Para este caso, la matriz tendrá en cuenta la posibilidad de transposiciones.
-
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{c|c|c|c|c|c}
-        & $""$ & $"$a$"$ & $"$ab$"$ & $"$abc$"$ \\
-        \hline
-        $""$ & 0 & 1 & 2 & 3 & 4 \\
-        $"$a$"$ & 1 & 0 & 1 & 2 & 3 \\
-        $"$ab$"$ & 2 & 1 & 0 & 1 & 2 \\
-        $"$abc$"$ & 3 & 2 & 1 & 2 & 1 \\
-        $"$abcd$"$ & 4 & 3 & 2 & 1 & 1 \\
-    \end{tabular}
-\end{table}
-
-La celda \( DP[4][4] = 1 \) indica que el costo mínimo es 1, logrado mediante la transposición entre $"$c$"$ y $"$d$"$ en \( S1 \).
 
 \subsubsection{Análisis de Complejidad}
-La complejidad temporal de la versión dinámica es \( O(m \times n) \), ya que se calcula cada celda de la matriz \( DP \) una sola vez. La complejidad espacial también es \( O(m \times n) \) debido a la matriz utilizada para almacenar los subproblemas. La inclusión de transposiciones y costos variables agrega un costo adicional en el cálculo de cada celda de \( DP \), pero no cambia la complejidad asintótica.
+La complejidad temporal de la versión dinámica es \( O(m \times n) \), ya que se calcula cada celda de la matriz \( dp \) una sola vez. La complejidad espacial también es \( O(m \times n) \) debido a la matriz utilizada para almacenar los subproblemas. La inclusión de transposiciones y costos variables agrega un costo adicional en el cálculo de cada celda de \( dp \), pero no cambia la complejidad asintótica.

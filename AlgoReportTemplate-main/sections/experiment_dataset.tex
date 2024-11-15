@@ -1,12 +1,60 @@
 \begin{mdframed}
     \textbf{La extensión máxima para esta sección es de 2 páginas.}
 \end{mdframed}
-Es importante generar varias muestras con características similares para una misma entrada, por ejemplo, variando tamaño del input dentro de lo que les permita la infraestructura utilizada en ests informe, con el fin de capturar una mayor diversidad de casos y obtener un análisis más completo del rendimiento de los algoritmos.
 
-\begin{mdframed}
-    Aunque la implementación de los algoritmos debe ser realizada en C++, se recomienda aprovechar otros lenguajes como Python para automatizar la generación de casos de prueba, ya que es más amigable para crear gráficos y realizar análisis de los resultados. Python, con sus bibliotecas como \texttt{matplotlib} o \texttt{pandas}, facilita la visualización de los datos obtenidos de las ejecuciones de los distintos algoritmo bajo diferentes escenarios.
-\end{mdframed}    
+Para los casos de prueba, se decidió no generarlos de manera automática, con el objetivo de mantener control sobre los casos a evaluar y verificar que los algoritmos ejecuten correctamente los pasos necesarios para alcanzar la solución. Los casos de prueba fueron diseñados tomando en cuenta los siguientes escenarios:
 
-\begin{mdframed}    
-    Debido a la naturaleza de las pruebas en un entorno computacional, los tiempos de ejecución pueden variar significativamente dependiendo de factores externos, como la carga del sistema en el momento de la ejecución. Por lo tanto, para obtener una medida más representativa, siempre es recomendable ejecutar múltiples pruebas con las mismas características de entrada y calcular el promedio de los resultados.
-\end{mdframed}
+\begin{itemize} 
+    \item Casos donde las cadenas están vacías: Ejemplos incluyen S1 = $""$ y S2 = $""$, S1 = $"$aaa$"$ y S2 = $""$, \\ 
+    y S1 = $""$ y S2 = $"$xyz$"$. 
+    \item Casos con caracteres repetidos: Ejemplos incluyen S1 = $"$aabb$"$ y S2 = $"$ab$"$, y S1 = $"$abc$"$ y \\
+    S2 = $"$abc$"$. 
+    \item Casos donde las transposiciones son necesarias: Ejemplos incluyen S1 = $"$abcd$"$ y S2 = $"$abdc$"$, y \\
+    S1 = $"$ab$"$ y S2 = $"$ba$"$. 
+    \item Casos variando el largo de las cadenas.
+\end{itemize}
+
+Los casos de prueba están almacenados en el archivo \texttt{casos\_prueba.txt}. En este archivo se pueden agregar las líneas que se deseen probar, utilizando el formato ``\texttt{palabra1 palabra2}``. Para representar una cadena vacía, se debe emplear el símbolo de comillas dobles ($""$).
+
+\subsection{Documentación de Casos de Prueba}
+
+A continuación se presentan los casos de prueba utilizados (Figura \ref{fig:teststrings}) para evaluar los algoritmos de distancia de edición. En cada uno se especifican las entradas \( S1 \) y \( S2 \), las operaciones esperadas, el costo total estimado y la justificación de la salida.
+
+\begin{table}[!ht]
+    \centering
+    \footnotesize
+    \begin{tabular}{|c|l|l|p{5cm}|p{4cm}|}
+    \hline
+    \textbf{Caso de Prueba} & \textbf{Entrada \( S1 \)} & \textbf{Entrada \( S2 \)} & \textbf{Operaciones Esperadas} & \textbf{Costo Total Esperado} \\
+    \hline
+    1 & $"$abc$"$ & $"$abc$"$ & Ninguna operación. & 0 \\
+    2 & $"$ab$"$ & $"$ba$"$ & Transposición de 'a' y 'b'. & Costo transposición \\
+    3 & $"$abc$"$ & $"$acb$"$ & Transposición de 'b' y 'c'. & Costo transposición \\
+    4 & $"$abcde$"$ & $"$abcde$"$ & Ninguna operación. & 0 \\
+    5 & $"$abc$"$ & $"$a$"$ & Eliminación de 'b', Eliminación de 'c'. & 2 * Costo eliminación \\
+    6 & $"$abc$"$ & $"$def$"$ & Sustitución de 'a' $\rightarrow$ 'd', 'b' $\rightarrow$ 'e', 'c' $\rightarrow$ 'f'. & 3 * Costo sustitución \\
+    7 & $"$abcd$"$ & $"$abdc$"$ & Transposición de 'c' y 'd'. & Costo transposición \\
+    8 & $"$aaa$"$ & $"$""$"$ & Eliminación de 'a', 'a', 'a'. & 3 * Costo eliminación \\
+    9 & $"$""$"$ & $"$xyz$"$ & Inserción de 'x', 'y', 'z'. & 3 * Costo inserción \\
+    10 & $"$""$"$ & $"$""$"$ & Ninguna operación. & 0 \\
+    11 & $"$cuadrado$"$ & $"$cuaresma$"$ & Sustitución de 'd' $\rightarrow$ 'r', 'r' $\rightarrow$ 'e', 'a' $\rightarrow$ 's', 'd' $\rightarrow$ 'm', 'o' $\rightarrow$ 'a'. & 5 * Costo sustitución \\
+    12 & $"$rodilla$"$ & $"$paella$"$ & Sustitución de 'r' $\rightarrow$ 'p', 'o' $\rightarrow$ 'a', 'd' $\rightarrow$ 'e'. Eliminación de 'i' & 3 * Costo sustitución + 1 * Costo Eliminación\\
+    13 & $"$amanda$"$ & $"$ada$"$ & Eliminación de 'm', 'a', 'n'. & 3 * Costo eliminación \\
+    \hline
+    \end{tabular}
+    \caption{Algunos casos de prueba para demostrar operaciones y costo esperado.}
+\end{table}
+    
+
+\subsubsection{Explicación de Ejecución}
+
+Cada caso ha sido diseñado para cubrir un escenario específico de edición, como inserciones, eliminaciones, sustituciones y transposiciones. A continuación se presenta la justificación por tipo de caso:
+
+\begin{itemize}
+    \item \textbf{Igualdad Directa (Casos 1 y 4)}: No requieren cambios, ya que ambas cadenas son idénticas.
+    \item \textbf{Transposiciones Necesarias (Casos 2, 3, 7)}: Requieren una transposición para igualar \( S1 \) y \( S2 \), minimizando las operaciones de edición.
+    \item \textbf{Inserciones y Eliminaciones (Casos 5, 8, 9, 13)}: Estos casos requieren insertar o eliminar caracteres adicionales en \( S1 \) o \( S2 \) para hacerlas equivalentes.
+    \item \textbf{Sustituciones (Casos 6, 11, 12)}: Exigen reemplazar uno o varios caracteres para obtener la cadena deseada.
+\end{itemize}
+
+Es importante tener en cuenta que esto es solo una predicción de lo que debería ocurrir, pero pueden existir variaciones. Esto se debe a que la implementación está orientada a encontrar la distancia de edición con costos variables que se generan de manera aleatoria. Por lo tanto, la selección de las operaciones dependerá directamente de los valores con los que se generen los archivos de costos.

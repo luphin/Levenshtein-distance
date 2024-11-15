@@ -19,239 +19,182 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{elsevier_abstract_2024}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=21abe5a91c2949aba6ef77033a5f98f3}{%
-           family={Elsevier},
-           familyi={E\bibinitperiod}}}%
-      }
-      \strng{namehash}{21abe5a91c2949aba6ef77033a5f98f3}
-      \strng{fullhash}{21abe5a91c2949aba6ef77033a5f98f3}
-      \strng{bibnamehash}{21abe5a91c2949aba6ef77033a5f98f3}
-      \strng{authorbibnamehash}{21abe5a91c2949aba6ef77033a5f98f3}
-      \strng{authornamehash}{21abe5a91c2949aba6ef77033a5f98f3}
-      \strng{authorfullhash}{21abe5a91c2949aba6ef77033a5f98f3}
-      \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Accessed: 2024-10-02}
-      \field{title}{Differentiating between an introduction and abstract in a research paper}
-      \field{year}{2024}
-      \verb{urlraw}
-      \verb https://scientific-publishing.webshop.elsevier.com/manuscript-preparation/differentiating-between-and-introduction-research-paper/
-      \endverb
-      \verb{url}
-      \verb https://scientific-publishing.webshop.elsevier.com/manuscript-preparation/differentiating-between-and-introduction-research-paper/
-      \endverb
-    \endentry
-    \entry{algorithms_erickson}{book}{}
-      \name{author}{1}{}{%
-        {{hash=5bc705fbb2f250ed1b9e6e0878e5c89f}{%
-           family={Erickson},
-           familyi={E\bibinitperiod},
-           given={Jeff},
-           giveni={J\bibinitperiod}}}%
-      }
-      \strng{namehash}{5bc705fbb2f250ed1b9e6e0878e5c89f}
-      \strng{fullhash}{5bc705fbb2f250ed1b9e6e0878e5c89f}
-      \strng{bibnamehash}{5bc705fbb2f250ed1b9e6e0878e5c89f}
-      \strng{authorbibnamehash}{5bc705fbb2f250ed1b9e6e0878e5c89f}
-      \strng{authornamehash}{5bc705fbb2f250ed1b9e6e0878e5c89f}
-      \strng{authorfullhash}{5bc705fbb2f250ed1b9e6e0878e5c89f}
-      \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{978-1-792-64483-2}
-      \field{month}{06}
-      \field{title}{Algorithms}
-      \field{year}{2019}
-    \endentry
-    \entry{algorithm2e}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=a5315ac91af386d0755259b7c836682f}{%
-           family={Fiorio},
-           familyi={F\bibinitperiod},
-           given={Christophe},
-           giveni={C\bibinitperiod}}}%
-      }
-      \strng{namehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{fullhash}{a5315ac91af386d0755259b7c836682f}
-      \strng{bibnamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorbibnamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authornamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorfullhash}{a5315ac91af386d0755259b7c836682f}
-      \field{extraname}{1}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{http://ctan.math.illinois.edu/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}}
-      \field{title}{Algorithm2e documentation}
-      \field{year}{2023}
-    \endentry
-    \entry{ctan-algorithm2e}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=a5315ac91af386d0755259b7c836682f}{%
-           family={Fiorio},
-           familyi={F\bibinitperiod},
-           given={Christophe},
-           giveni={C\bibinitperiod}}}%
-      }
-      \strng{namehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{fullhash}{a5315ac91af386d0755259b7c836682f}
-      \strng{bibnamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorbibnamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authornamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorfullhash}{a5315ac91af386d0755259b7c836682f}
-      \field{extraname}{2}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://ctan.org/pkg/algorithm2e}}
-      \field{title}{Algorithm2e on CTAN}
-      \field{year}{2023}
-    \endentry
-    \entry{inbookFonseca}{inbook}{}
-      \name{author}{2}{}{%
-        {{hash=c41c292e845093ea0f1404581ba2075a}{%
-           family={Fonseca},
-           familyi={F\bibinitperiod},
-           given={Jorge},
-           giveni={J\bibinitperiod}}}%
-        {{hash=8ee9db73aeef2920bf2d6f8ad95ebd2c}{%
-           family={Taghva},
-           familyi={T\bibinitperiod},
-           given={Kazem},
-           giveni={K\bibinitperiod}}}%
-      }
-      \strng{namehash}{494d8bfb4dabf185c03aeee5d7e6dae1}
-      \strng{fullhash}{494d8bfb4dabf185c03aeee5d7e6dae1}
-      \strng{bibnamehash}{494d8bfb4dabf185c03aeee5d7e6dae1}
-      \strng{authorbibnamehash}{494d8bfb4dabf185c03aeee5d7e6dae1}
-      \strng{authornamehash}{494d8bfb4dabf185c03aeee5d7e6dae1}
-      \strng{authorfullhash}{494d8bfb4dabf185c03aeee5d7e6dae1}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{978-3-030-43019-1}
-      \field{month}{01}
-      \field{title}{The State of Reproducible Research in Computer Science}
-      \field{year}{2020}
-      \field{pages}{519\bibrangedash 524}
-      \range{pages}{6}
-      \verb{doi}
-      \verb 10.1007/978-3-030-43020-7_68
-      \endverb
-    \endentry
-    \entry{taocv3}{book}{}
-      \name{author}{1}{}{%
-        {{hash=ec08e6f01da5f3814f28a70c89c64656}{%
-           family={Knuth},
-           familyi={K\bibinitperiod},
-           given={Donald\bibnamedelima E.},
-           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {USA}%
+    \entry{mohammad2006occurrences}{article}{}
+      \name{author}{3}{}{%
+        {{hash=0b94236342e1f11514e224affad0d501}{%
+           family={Mohammad},
+           familyi={M\bibinitperiod},
+           given={Ababneh},
+           giveni={A\bibinitperiod}}}%
+        {{hash=caf12ef13b1e99a379b1f903e04448cf}{%
+           family={Saleh},
+           familyi={S\bibinitperiod},
+           given={Oqeili},
+           giveni={O\bibinitperiod}}}%
+        {{hash=73303d9e917a11b42be461dadfc52a3c}{%
+           family={Abdeen},
+           familyi={A\bibinitperiod},
+           given={Rawan\bibnamedelima A},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Addison Wesley Longman Publishing Co., Inc.}%
+        {Science Publications}%
       }
-      \strng{namehash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{fullhash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{bibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{authorbibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{authornamehash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{authorfullhash}{ec08e6f01da5f3814f28a70c89c64656}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{0201896850}
-      \field{title}{The art of computer programming, volume 3: (2nd ed.) sorting and searching}
-      \field{year}{1998}
-    \endentry
-    \entry{GoodScientificPaper}{book}{}
-      \name{author}{2}{}{%
-        {{hash=debc1116d00474fc674854eafd1404c3}{%
-           family={Mack},
-           familyi={M\bibinitperiod},
-           given={Chris},
-           giveni={C\bibinitperiod}}}%
-        {{hash=eef23a8bb793d56bf9d5b9ff106830bf}{%
-           family={Muxamedova},
-           familyi={M\bibinitperiod},
-           given={Lola},
-           giveni={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{1aedf2b33708721bdb537522e4578c92}
-      \strng{fullhash}{1aedf2b33708721bdb537522e4578c92}
-      \strng{bibnamehash}{1aedf2b33708721bdb537522e4578c92}
-      \strng{authorbibnamehash}{1aedf2b33708721bdb537522e4578c92}
-      \strng{authornamehash}{1aedf2b33708721bdb537522e4578c92}
-      \strng{authorfullhash}{1aedf2b33708721bdb537522e4578c92}
+      \strng{namehash}{808e0a52c9815d5f6dee9e8850107a9b}
+      \strng{fullhash}{808e0a52c9815d5f6dee9e8850107a9b}
+      \strng{bibnamehash}{808e0a52c9815d5f6dee9e8850107a9b}
+      \strng{authorbibnamehash}{808e0a52c9815d5f6dee9e8850107a9b}
+      \strng{authornamehash}{808e0a52c9815d5f6dee9e8850107a9b}
+      \strng{authorfullhash}{808e0a52c9815d5f6dee9e8850107a9b}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{11}
-      \field{title}{How to Write a Good Scientific Paper}
-      \field{year}{2019}
+      \field{journaltitle}{Journal of Computer Science}
+      \field{number}{1}
+      \field{title}{Occurrences algorithm for string searching based on brute-force algorithm}
+      \field{volume}{2}
+      \field{year}{2006}
+      \field{pages}{82\bibrangedash 85}
+      \range{pages}{4}
     \endentry
-    \entry{overleaf-algorithms}{misc}{}
+    \entry{moyotl2016metodo}{article}{}
       \name{author}{1}{}{%
-        {{hash=80d685e90fa23d7996a66e45aa2d24ad}{%
-           family={Overleaf},
-           familyi={O\bibinitperiod}}}%
+        {{hash=0e2de73d4fe9a35ea9e2572fc81eb9b1}{%
+           family={Moyotl-Hernández},
+           familyi={M\bibinithyphendelim H\bibinitperiod},
+           given={Edgar},
+           giveni={E\bibinitperiod}}}%
       }
-      \strng{namehash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{fullhash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{bibnamehash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{authorbibnamehash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{authornamehash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{authorfullhash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \strng{namehash}{0e2de73d4fe9a35ea9e2572fc81eb9b1}
+      \strng{fullhash}{0e2de73d4fe9a35ea9e2572fc81eb9b1}
+      \strng{bibnamehash}{0e2de73d4fe9a35ea9e2572fc81eb9b1}
+      \strng{authorbibnamehash}{0e2de73d4fe9a35ea9e2572fc81eb9b1}
+      \strng{authornamehash}{0e2de73d4fe9a35ea9e2572fc81eb9b1}
+      \strng{authorfullhash}{0e2de73d4fe9a35ea9e2572fc81eb9b1}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.overleaf.com/learn/latex/Algorithms}}
-      \field{title}{Writing Algorithms in LaTeX}
-      \field{year}{2023}
+      \field{journaltitle}{Res. Comput. Sci.}
+      \field{title}{Método de corrección ortográfica basado en la frecuencia de las letras.}
+      \field{volume}{124}
+      \field{year}{2016}
+      \field{pages}{145\bibrangedash 156}
+      \range{pages}{12}
     \endentry
-    \entry{popper2005logic}{book}{}
+    \entry{eswiki:160948078}{misc}{}
       \name{author}{1}{}{%
-        {{hash=bbe62e2df9be5791a797b9266d4504a9}{%
-           family={Popper},
-           familyi={P\bibinitperiod},
-           given={K.},
-           giveni={K\bibinitperiod}}}%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Taylor \& Francis}%
-      }
-      \strng{namehash}{bbe62e2df9be5791a797b9266d4504a9}
-      \strng{fullhash}{bbe62e2df9be5791a797b9266d4504a9}
-      \strng{bibnamehash}{bbe62e2df9be5791a797b9266d4504a9}
-      \strng{authorbibnamehash}{bbe62e2df9be5791a797b9266d4504a9}
-      \strng{authornamehash}{bbe62e2df9be5791a797b9266d4504a9}
-      \strng{authorfullhash}{bbe62e2df9be5791a797b9266d4504a9}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{9781134470020}
-      \field{series}{Routledge Classics}
-      \field{title}{The Logic of Scientific Discovery}
-      \field{year}{2005}
+      \field{note}{[Internet; descargado 25-junio-2024]}
+      \field{title}{Algoritmo Smith-Waterman --- Wikipedia{,} La enciclopedia libre}
+      \field{year}{2024}
       \verb{urlraw}
-      \verb https://books.google.cl/books?id=LWSBAgAAQBAJ
+      \verb \url{https://es.wikipedia.org/w/index.php?title=Algoritmo_Smith-Waterman&oldid=160948078}
       \endverb
       \verb{url}
-      \verb https://books.google.cl/books?id=LWSBAgAAQBAJ
+      \verb %5Curl%7Bhttps://es.wikipedia.org/w/index.php?title=Algoritmo_Smith-Waterman&oldid=160948078%7D
+      \endverb
+    \endentry
+    \entry{eswiki:157799255}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Internet; descargado 28-enero-2024]}
+      \field{title}{Distancia de Levenshtein --- Wikipedia{,} La enciclopedia libre}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb \url{https://es.wikipedia.org/w/index.php?title=Distancia_de_Levenshtein&oldid=157799255}
+      \endverb
+      \verb{url}
+      \verb %5Curl%7Bhttps://es.wikipedia.org/w/index.php?title=Distancia_de_Levenshtein&oldid=157799255%7D
+      \endverb
+    \endentry
+    \entry{yujian2007normalized}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bd70c3225253795b291a97a0bda259ed}{%
+           family={Yujian},
+           familyi={Y\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c97e20777166561cf99ddc1272bea36a}{%
+           family={Bo},
+           familyi={B\bibinitperiod},
+           given={Liu},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{cd3638a44b8512329c5db36ab8bf1581}
+      \strng{fullhash}{cd3638a44b8512329c5db36ab8bf1581}
+      \strng{bibnamehash}{cd3638a44b8512329c5db36ab8bf1581}
+      \strng{authorbibnamehash}{cd3638a44b8512329c5db36ab8bf1581}
+      \strng{authornamehash}{cd3638a44b8512329c5db36ab8bf1581}
+      \strng{authorfullhash}{cd3638a44b8512329c5db36ab8bf1581}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE transactions on pattern analysis and machine intelligence}
+      \field{number}{6}
+      \field{title}{A normalized Levenshtein distance metric}
+      \field{volume}{29}
+      \field{year}{2007}
+      \field{pages}{1091\bibrangedash 1095}
+      \range{pages}{5}
+    \endentry
+    \entry{zaidkhan15_levenshtein}{online}{}
+      \name{author}{1}{}{%
+        {{hash=aabe378645e1da770f77c9a4cdc07294}{%
+           family={zaidkhan15},
+           familyi={z\bibinitperiod}}}%
+      }
+      \strng{namehash}{aabe378645e1da770f77c9a4cdc07294}
+      \strng{fullhash}{aabe378645e1da770f77c9a4cdc07294}
+      \strng{bibnamehash}{aabe378645e1da770f77c9a4cdc07294}
+      \strng{authorbibnamehash}{aabe378645e1da770f77c9a4cdc07294}
+      \strng{authornamehash}{aabe378645e1da770f77c9a4cdc07294}
+      \strng{authorfullhash}{aabe378645e1da770f77c9a4cdc07294}
+      \field{sortinit}{z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2024-01-31}
+      \field{title}{Introduction to Levenshtein Distance}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb \url{https://www.geeksforgeeks.org/introduction-to-levenshtein-distance/}
+      \endverb
+      \verb{url}
+      \verb %5Curl%7Bhttps://www.geeksforgeeks.org/introduction-to-levenshtein-distance/%7D
       \endverb
     \endentry
   \enddatalist

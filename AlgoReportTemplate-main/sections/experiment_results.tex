@@ -1,51 +1,97 @@
-\begin{mdframed}
-    \textbf{La extensión máxima para esta sección es de 4 páginas.}
-\end{mdframed}
+\textbf{La extensión máxima para esta sección es de 4 páginas.}
+
+\subsubsection{Comprobación de algoritmos}
+Primero se detallará el desarrollo para verificar que los algoritmos están correctamente diseñados, proporcionando así resultados correctos. Para esto, se ha utilizado la página web \href{https://es.planetcalc.com/1721/}{PLANETCALC}, la cual cuenta con un apartado para calcular la Distancia de Levenshtein con costos iguales para todas las operaciones. En esta página solo se entrega el resultado, por lo que se comparará este con el resultado obtenido por los algoritmos de Fuerza Bruta y Programación Dinámica.
+
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \begin{tabular}{|c|l|l|l|l|l|}
+    \hline
+    \textbf{Caso de Prueba} & \textbf{Entrada \( S1 \)} & \textbf{Entrada \( S2 \)} & \textbf{PLANETCALC} & \textbf{Fuerza Bruta} & \textbf{Programación Dinámica} \\
+    \hline
+    1 & $"$abc$"$ & $"$abc$"$ & 0 & 0 & 0 \\
+    2 & $"$ab$"$ & $"$ba$"$ & 1 & 1 & 1 \\
+    3 & $"$abc$"$ & $"$acb$"$ & 2 & 1 & 1 \\
+    4 & $"$abcde$"$ & $"$abcde$"$ & 0 & 0 & 0 \\
+    5 & $"$abc$"$ & $"$a$"$ & 2 & 2 & 2 \\
+    6 & $"$abc$"$ & $"$def$"$ & 3 & 3 & 3 \\
+    7 & $"$abcd$"$ & $"$abdc$"$ & 1 & 1 & 1 \\
+    8 & $"$aaa$"$ & $"$""$"$ & 3 & 3 & 3 \\
+    9 & $"$""$"$ & $"$xyz$"$ & 3 & 3 & 3 \\
+    10 & $"$""$"$ & $"$""$"$ & 0 & 0 & 0 \\
+    11 & $"$cuadrado$"$ & $"$cuaresma$"$ & 5 & 5 & 5 \\
+    12 & $"$rodilla$"$ & $"$paella$"$ & 4 & 4 & 4 \\
+    13 & $"$amanda$"$ & $"$ada$"$ & 3 & 3 & 3 \\
+    \hline
+    \end{tabular}
+    \caption{Comprobación de la efectividad de los algoritmos con algunos casos de prueba}
+    \label{fig:comparacion}
+\end{table}
+
+Este paso es solo para verificar que los algoritmos están correctamente diseñados o, al menos, que arrojan el resultado correcto. Para esto, se utiliza el archivo \texttt{costos.cpp}, el cual genera los archivos \texttt{costos} con valor 1 para todas las operaciones, de la siguiente manera:
+
+\begin{itemize}
+   \item Contenido de los archivos \texttt{cost\_delete.txt} y \texttt{cost\_insert.txt} so una fila de 26 unos, cada uno representa una letra.
+   \item El contenido de los archivos \texttt{cost\_replace.txt} y \texttt{cost\_transpose.txt} son matrices simétrics de \texttt{26x26} que representan el valor de cambiar una letra por otra con un 1. 
+\end{itemize}
+
+Se puede observar en el Cuadro \ref{fig:comparacion} que los valores obtenidos son bastante similares, pero esto puede resultar engañoso, ya que la página PLANETCALC utiliza el cálculo original de la Distancia de Levenshtein, donde solo se consideran las operaciones de inserción, eliminación y reemplazo. Es por esto que estas medidas solo se tomaron como referencia para verificar los algoritmos.
+
+\subsubsection{Soluciones encontradas}
+Para generar los costos variables, los cuales son requisitos dentro del problema a resolver, se creó el archivo \texttt{random-costos.cpp}, el cual genera los costos asignando un valor aleatorio de 1 a 10 para cada operación. Los costos utilizados pueden verse en el repositorio de Github, aquí están los enlaces:
+
+\begin{itemize}
+    \begin{minipage}{0.5\textwidth}
+        \item \href{https://github.com/luphin/Tarea2y3Algoritmos-FB-PD/blob/main/codigos/cost_delete.txt}{delete}
+        \item \href{https://github.com/luphin/Tarea2y3Algoritmos-FB-PD/blob/main/codigos/cost_insert.txt}{insert}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \item \href{https://github.com/luphin/Tarea2y3Algoritmos-FB-PD/blob/main/codigos/cost_replace.txt}{replace}
+        \item \href{https://github.com/luphin/Tarea2y3Algoritmos-FB-PD/blob/main/codigos/cost_transpose.txt}{transpose}
+    \end{minipage}
+\end{itemize}
 
 
-En esta sección, los resultados obtenidos, como las gráficas o tablas, deben estar respaldados por los datos generados durante la ejecución de sus programas. Es fundamental que, junto con el informe, se adjunten los archivos que contienen dichos datos para permitir su verificación. Además, se debe permitir y especficiar como obtener esos archivos desde una ejecución en otro computador (otra infraestructura para hacer lso experimentos).
+Al ejecutar el \verb|main.cpp| con estos costos, los resultados obtenidos se pueden evidenciar en el archivo \verb|resultados.txt|, en el cual se encuentra que:
 
-\textbf{No es necesario automatizar la generación de las gráficas}, pero sí es imprescindible que se pueda confirmar que las visualizaciones presentadas son producto de los datos generados por sus algoritmos, aunque la trazabilidad de los datos hasta las visualizaciones es esencial para garantizar que su validez: describa cómo se generaron los datos, cómo se procesaron y cómo se visualizaron de manera que pueda ser replicado por quien lea su informe.
-
-Agregue gráficas que muestren los resultados de sus experimentos. La cantidad de páginas es limitada, por lo tanto escoja las gráficas más representativas y que muestren de manera clara los resultados obtenidos. Esta elección es parte de lo que se evaluara en la sección de presentación de resultados. Referencie las figuras en el texto, describa lo que se observa en ellas y por qué son relevantes.
-
-En la \cref{fig:scatterplot_1} se muestra un scatterplot hecho con \href{https://es.overleaf.com/learn/latex/TikZ_package}{TikZ} con el tamaño ideal cuando se incluyen dos figuras. Queda a criterio de usted el decidir qué figuras incluir.
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \begin{tabular}{|c|l|l|l|l|}
+    \hline
+    \textbf{Caso de Prueba} & \textbf{Entrada \( S1 \)} & \textbf{Entrada \( S2 \)} & \textbf{Distancia (FB)} & \textbf{Distancia (PD)} \\
+    \hline
+    1 & $"$abc$"$ & $"$abc$"$ & 0 & 0 \\
+    2 & $"$ab$"$ & $"$ba$"$ & 3 & 3 \\
+    3 & $"$abc$"$ & $"$acb$"$ & 2 & 2 \\
+    4 & $"$abcde$"$ & $"$abcde$"$ & 0 & 0 \\
+    5 & $"$abc$"$ & $"$a$"$ & 4 & 4 \\
+    6 & $"$abc$"$ & $"$def$"$ & 14 & 14 \\
+    7 & $"$abcd$"$ & $"$abdc$"$ & 2 & 2 \\
+    8 & $"$aaa$"$ & $"$""$"$ & 6 & 6 \\
+    9 & $"$""$"$ & $"$xyz$"$ & 15 & 15 \\
+    10 & $"$""$"$ & $"$""$"$ & 0 & 0 \\
+    11 & $"$cuadrado$"$ & $"$cuaresma$"$ & 15 & 15 \\
+    12 & $"$rodilla$"$ & $"$paella$"$ & 20 & 20 \\
+    13 & $"$amanda$"$ & $"$ada$"$ & 13 & 13 \\
+    \hline
+    \end{tabular}
+    \caption{Comprobación }
+    \label{fig:resultados}
+\end{table}
 
 \begin{figure}[H]
     \centering
-    \input{tikz/plot1.tex}
-    \caption{Ejemplo de scatterplot hecho con tikz. Tamaño ideal 1.}
-    \label{fig:scatterplot_1}
+    \includegraphics[width=1\textwidth]{images/Figure_1.png}
+    \caption{Gráfica obtenida con los resultados de las pruebas.}
+    \label{fig:tiempo}
 \end{figure}
-
-
 \begin{figure}[H]
     \centering
-    \begin{minipage}[t]{0.5\textwidth}
-    \input{tikz/plot2.tex}
-    \end{minipage}%
-    \begin{minipage}[t]{0.5\textwidth}
-    \input{tikz/plot3.tex}
-    \end{minipage}%
-    \caption{Ejemplo de scatterplot hecho con tikz. Tamaño ideal 2.}
-    \label{fig:scatterplot_2}
+    \includegraphics[width=1\textwidth]{images/Figure_2.png}
+    \caption{Gráfica obtenida con resultados de las pruebas.}
+    \label{fig:memoria}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \begin{minipage}[t]{0.5\textwidth}
-        \includegraphics[width=\textwidth]{images/4_impurezas_cantmax_size10.png}
-    \end{minipage}%
-    \begin{minipage}[t]{0.5\textwidth}
-        \includegraphics[width=\textwidth]{images/4_impurezas_cantmax_size10.png}    \end{minipage}%
-    \caption{Ejemplo de scatterplot hecho con matplotlib.}
-    \label{fig:scatterplot_3}
-\end{figure}
-
-
-
-
-
-\begin{mdframed}
-    Recuerde que es imprescindible que se pueda replicar la generación de las gráficas, por lo que usted debe incluir cómo generó esos datos y  cómo podría generarlos la persona que revisa su entrega y ejecuta sus programas. Por ejemplo, si genera un scatterpolot con Tikz, usted debe explicar cómo obtener la tupla de valores que se usaron para generar la gráfica.
-\end{mdframed}
+La Figura \ref{fig:tiempo} es originada en base a los resultados de los casos de prueba que son anotados en \href{https://github.com/luphin/Tarea2y3Algoritmos-FB-PD/blob/main/codigos/resultados.txt}{resultados.txt}, se puede ver el comportamiento de los algortimos en base al tiempo que demoran dependiendo de la longitud de las cadenas, tambien influye como la cadena esta estructurada. A medida que aumenta el promedio de la suma de largos de las cadenas el tiempo de ejecucion aumenta en mayor porporcion para el algoritmo de Fuerza bruta, en relacion al cambio más controlado que se puede ver en el algoritmos de Programación diámica. Tambien se trato de obtener la memoria utilizada por cada una de las funciones para resolver el problema, esto mediante un hilo que se ejecutara en paralelo con la ejecuion del archivo \texttt{main.cpp} de esta forma ir consultando la memoria utilizada cada 50 milisegundos y esta almacenandola en una variable global (no se ejecuto ningun programa más mientras estaba en ejecución main) se obtuvo lo graficado en la Figura \ref{fig:memoria}.
