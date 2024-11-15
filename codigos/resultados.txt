@@ -1,24 +1,141 @@
-Caso:  vs 
-Distancia (FB): 0, Tiempo (FB): 2 us, Memoria (FB): 0 KB
-Distancia (DP): 0, Tiempo (DP): 3 us, Memoria (DP): 0 KB
-Caso: aaaa vs aaaa
-Distancia (FB): 0, Tiempo (FB): 205 us, Memoria (FB): 0 KB
-Distancia (DP): 0, Tiempo (DP): 14 us, Memoria (DP): 0 KB
+Caso: abc vs abc
+Distancia (FB): 0, Tiempo (FB): 18 us, Memoria (FB): 0 KB
+Distancia (DP): 0, Tiempo (DP): 9 us, Memoria (DP): 0 KB
 Caso: ab vs ba
-Distancia (FB): 1, Tiempo (FB): 6 us, Memoria (FB): 0 KB
-Distancia (DP): 1, Tiempo (DP): 6 us, Memoria (DP): 0 KB
-Caso: abc vs acb
-Distancia (FB): 1, Tiempo (FB): 29 us, Memoria (FB): 0 KB
-Distancia (DP): 1, Tiempo (DP): 9 us, Memoria (DP): 0 KB
-Caso: abcde vs abcde
-Distancia (FB): 0, Tiempo (FB): 811 us, Memoria (FB): 0 KB
-Distancia (DP): 0, Tiempo (DP): 26 us, Memoria (DP): 0 KB
-Caso: abc vs a
-Distancia (FB): 2, Tiempo (FB): 4 us, Memoria (FB): 0 KB
-Distancia (DP): 2, Tiempo (DP): 6 us, Memoria (DP): 0 KB
-Caso: abc vs def
-Distancia (FB): 3, Tiempo (FB): 28 us, Memoria (FB): 0 KB
+Distancia (FB): 3, Tiempo (FB): 6 us, Memoria (FB): 0 KB
 Distancia (DP): 3, Tiempo (DP): 8 us, Memoria (DP): 0 KB
+Caso: abc vs acb
+Distancia (FB): 2, Tiempo (FB): 14 us, Memoria (FB): 1376256 KB
+Distancia (DP): 2, Tiempo (DP): 9 us, Memoria (DP): 0 KB
+Caso: abcde vs abcde
+Distancia (FB): 0, Tiempo (FB): 402 us, Memoria (FB): 1376256 KB
+Distancia (DP): 0, Tiempo (DP): 16 us, Memoria (DP): 0 KB
+Caso: abc vs a
+Distancia (FB): 4, Tiempo (FB): 3 us, Memoria (FB): 0 KB
+Distancia (DP): 4, Tiempo (DP): 15 us, Memoria (DP): 1409024 KB
+Caso: abc vs def
+Distancia (FB): 14, Tiempo (FB): 15 us, Memoria (FB): 0 KB
+Distancia (DP): 14, Tiempo (DP): 10 us, Memoria (DP): 0 KB
 Caso: abcd vs abdc
-Distancia (FB): 1, Tiempo (FB): 196 us, Memoria (FB): 0 KB
-Distancia (DP): 1, Tiempo (DP): 20 us, Memoria (DP): 32768 KB
+Distancia (FB): 2, Tiempo (FB): 122 us, Memoria (FB): 1425408 KB
+Distancia (DP): 2, Tiempo (DP): 12 us, Memoria (DP): 1425408 KB
+Caso: aaa vs 
+Distancia (FB): 6, Tiempo (FB): 0 us, Memoria (FB): 0 KB
+Distancia (DP): 6, Tiempo (DP): 5 us, Memoria (DP): 0 KB
+Caso:  vs xyz
+Distancia (FB): 15, Tiempo (FB): 0 us, Memoria (FB): 0 KB
+Distancia (DP): 15, Tiempo (DP): 3 us, Memoria (DP): 0 KB
+Caso:  vs 
+Distancia (FB): 0, Tiempo (FB): 0 us, Memoria (FB): 1425408 KB
+Distancia (DP): 0, Tiempo (DP): 8 us, Memoria (DP): 1425408 KB
+Caso: cuadrado vs cuaresma
+Distancia (FB): 15, Tiempo (FB): 64626 us, Memoria (FB): 1425408 KB
+Distancia (DP): 15, Tiempo (DP): 30 us, Memoria (DP): 1425408 KB
+Caso: rodilla vs paella
+Distancia (FB): 20, Tiempo (FB): 4966 us, Memoria (FB): 1425408 KB
+Distancia (DP): 20, Tiempo (DP): 26 us, Memoria (DP): 1425408 KB
+Caso: amanda vs ada
+Distancia (FB): 13, Tiempo (FB): 268 us, Memoria (FB): 1441792 KB
+Distancia (DP): 13, Tiempo (DP): 57 us, Memoria (DP): 1458176 KB
+Caso: abcdefghij vs abcdefghij
+Distancia (FB): 0, Tiempo (FB): 2009160 us, Memoria (FB): 1458176 KB
+Distancia (DP): 0, Tiempo (DP): 65 us, Memoria (DP): 1458176 KB
+Caso: abcdefg vs abcdefh
+Distancia (FB): 7, Tiempo (FB): 12963 us, Memoria (FB): 1458176 KB
+Distancia (DP): 7, Tiempo (DP): 50 us, Memoria (DP): 1458176 KB
+Caso: abcdefghi vs abcdefghj
+Distancia (FB): 6, Tiempo (FB): 475772 us, Memoria (FB): 1458176 KB
+Distancia (DP): 6, Tiempo (DP): 56 us, Memoria (DP): 1458176 KB
+Caso: abcdefg vs hijabcdef
+Distancia (FB): 16, Tiempo (FB): 62671 us, Memoria (FB): 1458176 KB
+Distancia (DP): 16, Tiempo (DP): 30 us, Memoria (DP): 1458176 KB
+Caso: abcdefghijklm vs abcdefghijklp
+Distancia (FB): 1, Tiempo (FB): 332071456 us, Memoria (FB): 1458176 KB
+Distancia (DP): 1, Tiempo (DP): 146 us, Memoria (DP): 1458176 KB
+Caso: abcd vs efgh
+Distancia (FB): 15, Tiempo (FB): 93 us, Memoria (FB): 1458176 KB
+Distancia (DP): 15, Tiempo (DP): 13 us, Memoria (DP): 0 KB
+Caso: mnop vs qrst
+Distancia (FB): 10, Tiempo (FB): 71 us, Memoria (FB): 1458176 KB
+Distancia (DP): 10, Tiempo (DP): 13 us, Memoria (DP): 0 KB
+Caso: xyzabc vs uvwxyz
+Distancia (FB): 10, Tiempo (FB): 1948 us, Memoria (FB): 1458176 KB
+Distancia (DP): 10, Tiempo (DP): 20 us, Memoria (DP): 1458176 KB
+Caso: abcdef vs zxyabc
+Distancia (FB): 18, Tiempo (FB): 1896 us, Memoria (FB): 1458176 KB
+Distancia (DP): 18, Tiempo (DP): 17 us, Memoria (DP): 0 KB
+Caso: a vs z
+Distancia (FB): 9, Tiempo (FB): 1 us, Memoria (FB): 0 KB
+Distancia (DP): 9, Tiempo (DP): 5 us, Memoria (DP): 0 KB
+Caso: xyz vs uvw
+Distancia (FB): 6, Tiempo (FB): 14 us, Memoria (FB): 0 KB
+Distancia (DP): 6, Tiempo (DP): 9 us, Memoria (DP): 0 KB
+Caso: qwerty vs asdfgh
+Distancia (FB): 18, Tiempo (FB): 1822 us, Memoria (FB): 1458176 KB
+Distancia (DP): 18, Tiempo (DP): 17 us, Memoria (DP): 1458176 KB
+Caso: abc vs xyyz
+Distancia (FB): 18, Tiempo (FB): 26 us, Memoria (FB): 1458176 KB
+Distancia (DP): 18, Tiempo (DP): 9 us, Memoria (DP): 0 KB
+Caso: longstring vs differentstring
+Distancia (FB): 44, Tiempo (FB): 72265810 us, Memoria (FB): 1458176 KB
+Distancia (DP): 44, Tiempo (DP): 78 us, Memoria (DP): 1458176 KB
+Caso: quickbrown vs foxjumped
+Distancia (FB): 34, Tiempo (FB): 909342 us, Memoria (FB): 1458176 KB
+Distancia (DP): 34, Tiempo (DP): 38 us, Memoria (DP): 1458176 KB
+Caso: distance vs sequence
+Distancia (FB): 27, Tiempo (FB): 55849 us, Memoria (FB): 1458176 KB
+Distancia (DP): 27, Tiempo (DP): 27 us, Memoria (DP): 1458176 KB
+Caso: helloworld vs goodbye
+Distancia (FB): 34, Tiempo (FB): 93765 us, Memoria (FB): 1458176 KB
+Distancia (DP): 34, Tiempo (DP): 27 us, Memoria (DP): 1458176 KB
+Caso: aaaaaa vs aa
+Distancia (FB): 8, Tiempo (FB): 20 us, Memoria (FB): 1458176 KB
+Distancia (DP): 8, Tiempo (DP): 10 us, Memoria (DP): 1458176 KB
+Caso: hello vs world
+Distancia (FB): 15, Tiempo (FB): 366 us, Memoria (FB): 1458176 KB
+Distancia (DP): 15, Tiempo (DP): 13 us, Memoria (DP): 1458176 KB
+Caso: first vs second
+Distancia (FB): 28, Tiempo (FB): 738 us, Memoria (FB): 1458176 KB
+Distancia (DP): 28, Tiempo (DP): 15 us, Memoria (DP): 1458176 KB
+Caso: one vs two
+Distancia (FB): 12, Tiempo (FB): 45 us, Memoria (FB): 1458176 KB
+Distancia (DP): 12, Tiempo (DP): 7 us, Memoria (DP): 1458176 KB
+Caso: long vs longlong
+Distancia (FB): 29, Tiempo (FB): 1914 us, Memoria (FB): 1458176 KB
+Distancia (DP): 29, Tiempo (DP): 107 us, Memoria (DP): 1458176 KB
+Caso: aaaaaa vs 
+Distancia (FB): 12, Tiempo (FB): 0 us, Memoria (FB): 0 KB
+Distancia (DP): 12, Tiempo (DP): 5 us, Memoria (DP): 1458176 KB
+Caso:  vs abcdef
+Distancia (FB): 30, Tiempo (FB): 0 us, Memoria (FB): 0 KB
+Distancia (DP): 30, Tiempo (DP): 3 us, Memoria (DP): 0 KB
+Caso: abcdefg vs abcxe
+Distancia (FB): 13, Tiempo (FB): 1452 us, Memoria (FB): 1458176 KB
+Distancia (DP): 13, Tiempo (DP): 16 us, Memoria (DP): 1458176 KB
+Caso: hello vs bye
+Distancia (FB): 25, Tiempo (FB): 46 us, Memoria (FB): 1458176 KB
+Distancia (DP): 25, Tiempo (DP): 11 us, Memoria (DP): 1458176 KB
+Caso: apple vs orange
+Distancia (FB): 18, Tiempo (FB): 886 us, Memoria (FB): 1458176 KB
+Distancia (DP): 18, Tiempo (DP): 17 us, Memoria (DP): 0 KB
+Caso: cat vs hat
+Distancia (FB): 3, Tiempo (FB): 29 us, Memoria (FB): 1458176 KB
+Distancia (DP): 3, Tiempo (DP): 10 us, Memoria (DP): 0 KB
+Caso: a vs b
+Distancia (FB): 5, Tiempo (FB): 1 us, Memoria (FB): 0 KB
+Distancia (DP): 5, Tiempo (DP): 5 us, Memoria (DP): 0 KB
+Caso: ab vs ba
+Distancia (FB): 3, Tiempo (FB): 4 us, Memoria (FB): 0 KB
+Distancia (DP): 3, Tiempo (DP): 8 us, Memoria (DP): 0 KB
+Caso: abc vs cab
+Distancia (FB): 2, Tiempo (FB): 13 us, Memoria (FB): 0 KB
+Distancia (DP): 2, Tiempo (DP): 9 us, Memoria (DP): 0 KB
+Caso: abcd vs dcba
+Distancia (FB): 11, Tiempo (FB): 112 us, Memoria (FB): 1458176 KB
+Distancia (DP): 11, Tiempo (DP): 12 us, Memoria (DP): 0 KB
+Caso: abcde vs edcba
+Distancia (FB): 10, Tiempo (FB): 384 us, Memoria (FB): 1458176 KB
+Distancia (DP): 10, Tiempo (DP): 15 us, Memoria (DP): 0 KB
+Caso: abcdef vs ghijklm
+Distancia (FB): 27, Tiempo (FB): 4103 us, Memoria (FB): 1458176 KB
+Distancia (DP): 27, Tiempo (DP): 21 us, Memoria (DP): 1458176 KB

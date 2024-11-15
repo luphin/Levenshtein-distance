@@ -6,6 +6,9 @@
 #include <climits>  // Para INT_MAX
 #include <chrono>   // Para medir el tiempo
 #include <sys/resource.h>  // Para medir el uso de memoria (solo en sistemas compatibles)
+#include <thread>
+#include <atomic>
+#include <mutex>
 
 using namespace std;
 using namespace chrono;
@@ -45,41 +48,75 @@ vector<int> costosDelete;
 vector<vector<int>> costosReplace;
 vector<vector<int>> costosTranspose;
 
-// Función para obtener el uso de memoria (sólo en sistemas compatibles)
+// Variables globales para la monitorización de memoria
+atomic<bool> monitorizando(false);
+atomic<long> maxMemoriaUsada(0);
+mutex memMutex;
+
+// Función para obtener el uso de memoria actual
 long getMemoriaUsada() {
     struct rusage usage;
     getrusage(RUSAGE_SELF, &usage);
-    return usage.ru_maxrss; // Retorna la memoria máxima usada en kilobytes (dependiendo del sistema puede variar)
+    return usage.ru_maxrss; // Memoria en KB
 }
 
+// Función para monitorizar la memoria en un hilo separado
+void monitorMemoria() {
+    while (monitorizando.load()) {
+        long memoriaActual = getMemoriaUsada();
+        lock_guard<mutex> lock(memMutex);
+        if (memoriaActual > maxMemoriaUsada.load()) {
+            maxMemoriaUsada.store(memoriaActual);
+        }
+        this_thread::sleep_for(chrono::milliseconds(10)); // Intervalo de 10ms para actualización
+    }
+}
+
+// Función que inicia la monitorización de memoria
+void iniciarMonitorizacionMemoria() {
+    maxMemoriaUsada = 0; // Reiniciar máximo
+    monitorizando = true;
+    thread(monitorMemoria).detach(); // Iniciar el hilo de monitorización
+}
+
+// Función que detiene la monitorización de memoria
+void detenerMonitorizacionMemoria() {
+    monitorizando = false;
+    this_thread::sleep_for(chrono::milliseconds(50)); // Esperar a que el hilo termine
+}
+
+// Función para ejecutar y medir cada prueba
 void runTest(const string &S1, const string &S2, ofstream &outputFile, ofstream &operacionesFile) {
-    cout << "  Iniciando Fuerza Bruta..." << endl;
-    operacionesFile << "Caso " << S1 << " vs " << S2 << "\n";
-    operacionesFile << "Fuerza Bruta\n";
+    // Medición para Fuerza Bruta
+    cout << " Iniciando Fuerza Bruta..." << endl;
+    iniciarMonitorizacionMemoria();
     auto startFB = high_resolution_clock::now();
-    long memoriaFBInicio = getMemoriaUsada();
     int distanciaFB = distanciaEdicionFuerzaBruta(S1, S2, 0, 0, operacionesFile);
-    long memoriaFBFin = getMemoriaUsada();
     auto stopFB = high_resolution_clock::now();
+    detenerMonitorizacionMemoria();
+    long memoriaFB = maxMemoriaUsada.load();
     auto durationFB = duration_cast<microseconds>(stopFB - startFB);
-    cout << "  Fuerza Bruta completada." << endl;
+    cout << " Fuerza Bruta completada." << endl;
 
-    operacionesFile << "\nProgramación Dinámica\n";
-    cout << "  Iniciando Programación Dinámica..." << endl;
+    // Medición para Programación Dinámica
+    cout << " Iniciando Programación Dinámica..." << endl;
+    iniciarMonitorizacionMemoria();
     auto startDP = high_resolution_clock::now();
-    long memoriaDPInicio = getMemoriaUsada();
     int distanciaDP = distanciaEdicionProgDinamica(S1, S2, operacionesFile);
-    long memoriaDPFin = getMemoriaUsada();
     auto stopDP = high_resolution_clock::now();
+    detenerMonitorizacionMemoria();
+    long memoriaDP = maxMemoriaUsada.load();
     auto durationDP = duration_cast<microseconds>(stopDP - startDP);
-    cout << "  Programación Dinámica completada." << endl;
+    cout << " Programación Dinámica completada." << endl;
 
+    // Guardar resultados en archivo de salida
     outputFile << "Caso: " << S1 << " vs " << S2 << "\n"
-               << "Distancia (FB): " << distanciaFB << ", Tiempo (FB): " << durationFB.count() << " us, Memoria (FB): " << (memoriaFBFin - memoriaFBInicio) << " KB\n"
-               << "Distancia (DP): " << distanciaDP << ", Tiempo (DP): " << durationDP.count() << " us, Memoria (DP): " << (memoriaDPFin - memoriaDPInicio) << " KB\n";
-
+               << "Distancia (FB): " << distanciaFB << ", Tiempo (FB): " << durationFB.count() << " us, Memoria (FB): " << memoriaFB << " KB\n"
+               << "Distancia (DP): " << distanciaDP << ", Tiempo (DP): " << durationDP.count() << " us, Memoria (DP): " << memoriaDP << " KB\n";
     operacionesFile << "--------\n";
 }
+
+
 
 int main() {
     // Cargar tablas de costos desde los archivos correspondientes
@@ -152,7 +189,7 @@ int distanciaEdicionFuerzaBruta(const string &S1, const string &S2, int i, int j
     if (i == S1.length()) {
         int costo = 0;
         for (int k = j; k < S2.length(); ++k) {
-            operaciones << "inserción " << S2[k] << "\n";
+            // operaciones << "inserción " << S2[k] << "\n";
             costo += costo_insert(S2[k]);
         }
         return costo;
@@ -161,7 +198,7 @@ int distanciaEdicionFuerzaBruta(const string &S1, const string &S2, int i, int j
     if (j == S2.length()) {
         int costo = 0;
         for (int k = i; k < S1.length(); ++k) {
-            operaciones << "eliminación " << S1[k] << "\n";
+            // operaciones << "eliminación " << S1[k] << "\n";
             costo += costo_delete(S1[k]);
         }
         return costo;
@@ -200,11 +237,11 @@ int distanciaEdicionProgDinamica(const string &S1, const string &S2, ofstream &o
     // Inicializar los casos base
     for (int i = 1; i <= m; ++i) {
         dp[i][0] = dp[i - 1][0] + costo_delete(S1[i - 1]);
-        operaciones << "eliminación " << S1[i - 1] << "\n";
+        //operaciones << "eliminación " << S1[i - 1] << "\n";
     }
     for (int j = 1; j <= n; ++j) {
         dp[0][j] = dp[0][j - 1] + costo_insert(S2[j - 1]);
-        operaciones << "inserción " << S2[j - 1] << "\n";
+        //operaciones << "inserción " << S2[j - 1] << "\n";
     }
 
     // Llenar la matriz dp
