@@ -12,11 +12,16 @@ Este proyecto implementa los algoritmos de **Fuerza Bruta** y **Programación Di
     - La implementación no fue correcta dentro de los algoritmos, ya que no determina adecuadamente el uso de memoria. 
     Además, el archivo `operaciones.txt`, que debía almacenar las operaciones realizadas, no fue actualizado porque se registraban todas las operaciones de ambos algoritmos, lo que resultaba en un archivo excesivamente extenso.
 
+Puede revisar la documentación en [AlgoReportTemplate-main/tarea_main.pdf](https://github.com/luphin/Tarea2y3Algoritmos-FB-PD/blob/main/AlgoReportTemplate-main/tarea_main.pdf)
+
 ## Requisitos
 Para ejecutar este proyecto, asegúrese de tener instalado lo siguiente:
 
 - **g++**: Para compilar los programas en C++.
 - **Python**: Para generar gráficos basados en los resultados (se requiere el script `graficos.py`).
+
+>[!IMPORTANT]
+> Implementación utiliza la biblioteca sys/resource.h de C++, la cual permite la lectura del consumo de memoria en las operaciones, pero solo está disponible en entornos Linux y Unix. En caso de utilizar un entorno diferente, será necesario eliminar esta funcionalidad en el archivo main.cpp. Esto implicará realizar modificaciones tales como eliminar la función de lectura de memoria del main y omitir la escritura de este dato en el archivo de resultados
 
 ## Instrucciones de Uso
 

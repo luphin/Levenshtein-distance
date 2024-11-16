@@ -104,10 +104,10 @@
       \field{title}{Algoritmo Smith-Waterman --- Wikipedia{,} La enciclopedia libre}
       \field{year}{2024}
       \verb{urlraw}
-      \verb \url{https://es.wikipedia.org/w/index.php?title=Algoritmo_Smith-Waterman&oldid=160948078}
+      \verb https://es.wikipedia.org/w/index.php?title=Algoritmo_Smith-Waterman&oldid=160948078
       \endverb
       \verb{url}
-      \verb %5Curl%7Bhttps://es.wikipedia.org/w/index.php?title=Algoritmo_Smith-Waterman&oldid=160948078%7D
+      \verb https://es.wikipedia.org/w/index.php?title=Algoritmo_Smith-Waterman&oldid=160948078
       \endverb
     \endentry
     \entry{eswiki:157799255}{misc}{}
@@ -131,10 +131,10 @@
       \field{title}{Distancia de Levenshtein --- Wikipedia{,} La enciclopedia libre}
       \field{year}{2024}
       \verb{urlraw}
-      \verb \url{https://es.wikipedia.org/w/index.php?title=Distancia_de_Levenshtein&oldid=157799255}
+      \verb https://es.wikipedia.org/w/index.php?title=Distancia_de_Levenshtein&oldid=157799255
       \endverb
       \verb{url}
-      \verb %5Curl%7Bhttps://es.wikipedia.org/w/index.php?title=Distancia_de_Levenshtein&oldid=157799255%7D
+      \verb https://es.wikipedia.org/w/index.php?title=Distancia_de_Levenshtein&oldid=157799255
       \endverb
     \endentry
     \entry{yujian2007normalized}{article}{}
@@ -191,10 +191,10 @@
       \field{title}{Introduction to Levenshtein Distance}
       \field{year}{2024}
       \verb{urlraw}
-      \verb \url{https://www.geeksforgeeks.org/introduction-to-levenshtein-distance/}
+      \verb https://www.geeksforgeeks.org/introduction-to-levenshtein-distance/
       \endverb
       \verb{url}
-      \verb %5Curl%7Bhttps://www.geeksforgeeks.org/introduction-to-levenshtein-distance/%7D
+      \verb https://www.geeksforgeeks.org/introduction-to-levenshtein-distance/
       \endverb
     \endentry
   \enddatalist
