@@ -1,4 +1,5 @@
 # Proyecto Explorando la Distancia entre Cadenas, una Operación a la Vez
+Proyecto de ramo Algoritmos y Complejodad 2024-2 Universidad Técnica Federico Santa María
 
 ## Objetivo
 Este proyecto implementa los algoritmos de **Fuerza Bruta** y **Programación Dinámica** para calcular la distnacia mínima de edición entre dos cadenas de texto, considerando costos variables para las operaciones de inserción, eliminación, sustitución y transposición. El objetivo es realizar un análisis comparativo entre ambos algoritmos en términos de tiempo de ejecución y uso de memoria.
@@ -106,3 +107,6 @@ make python
 ## Contribuciones
 
 Si desea contribuir al proyecto, no dude en realizar un fork y enviar sus mejoras mediante un pull request.
+
+## Autor 
+Luis Zegarra - 202073628-6

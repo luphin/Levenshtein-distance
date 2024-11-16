@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -g
 
-all: main
+all: randomcostos main
 
 costos: costos.cpp
 	${CXX} ${CXXFLAGS} costos.cpp -o costos
