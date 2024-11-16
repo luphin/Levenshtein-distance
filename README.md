@@ -99,7 +99,7 @@ make run-main
 make python
 ```
 
->[!NOTE] Notas
+>[!NOTE]
 > Asegúrese de que todos los archivos de entrada estén disponibles antes de ejecutar el programa.
 > Los gráficos generados se basarán en los resultados de las pruebas con diferentes longitudes y estructuras de las cadenas de entrada.
 
